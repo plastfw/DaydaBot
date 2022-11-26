@@ -1,55 +1,74 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Discord;
+using Discord.Commands;
 using Discord.WebSocket;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration.Yaml;
+using Discord.Interactions;
+using Microsoft.VisualBasic;
 
-public class Program
+namespace DiscordBotDadya
 {
-    public static Task Main(string[] args) => new Program().MainAsync();
-
-    private DiscordSocketClient _client;
+  public class Program
+  {
+    public static Task Main() => new Program().MainAsync();
 
     public async Task MainAsync()
     {
-        _client = new DiscordSocketClient();
+      var config = new ConfigurationBuilder()
+        .SetBasePath(AppContext.BaseDirectory)
+        .AddYamlFile("config.yml")
+        .Build();
 
-        _client.Log += Log;
+      using IHost host = Host.CreateDefaultBuilder()
+        .ConfigureServices((_, services) =>
+          services
+            .AddSingleton(config)
+            .AddSingleton(x => new DiscordSocketClient(new DiscordSocketConfig
+            {
+              GatewayIntents = Discord.GatewayIntents.AllUnprivileged,
+              AlwaysDownloadUsers = true
+            }))
+            .AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()))
+            .AddSingleton<InteractionHandler>()
+            .AddSingleton(x => new CommandService())
+            .AddSingleton<PrefixHandler>()
+        )
+        .Build();
 
-        var token = "MTA0MTgwMjUyMzUzNjc4NTUwOA.GdcfGR.oDsXubhUQu6-hC_H30g21wh68jnQaYw-W4aW1U";
+      await RunAsync(host);
 
-        await _client.LoginAsync(TokenType.Bot, token);
-        await _client.StartAsync();
+      async Task RunAsync(IHost host)
+      {
+        using IServiceScope serviceScope = host.Services.CreateScope();
+        IServiceProvider provider = serviceScope.ServiceProvider;
 
-        CommandHandler(_client,);
+        var _client = provider.GetRequiredService<DiscordSocketClient>();
+        var sCommands = provider.GetRequiredService<InteractionService>();
+        await provider.GetRequiredService<InteractionHandler>().InitializeAsync();
+        var config = provider.GetRequiredService<IConfigurationRoot>();
+        var pCommands = provider.GetRequiredService<PrefixHandler>();
+        pCommands.AddModule<Modules.PrefixModule>();
+        await pCommands.InitializeAsync();
 
-        // Block this task until the program is closed.
-        await Task.Delay(-1);
-    }
+        _client.Log += async (LogMessage msg) => { Console.WriteLine(msg.Message); };
+        sCommands.Log += async (LogMessage msg) => { Console.WriteLine(msg.Message); };
 
-    private Task Log(LogMessage msg)
-    {
-        Console.WriteLine(msg.ToString());
-        return Task.CompletedTask;
-    }
-    
-    static IServiceProvider CreateServices()
-    {
-        var config = new DiscordSocketConfig()
+        _client.Ready += async () =>
         {
-            //...
+          Console.WriteLine("Bot is ready");
+          await sCommands.RegisterCommandsToGuildAsync(UInt64.Parse(config["guild"]));
         };
 
-        // X represents either Interaction or Command, as it functions the exact same for both types.
-        var servConfig = new XServiceConfig()
-        {
-            //...
-        }
 
-        var collection = new ServiceCollection()
-            .AddSingleton(config)
-            .AddSingleton<DiscordSocketClient>();
-            
-        return collection.BuildServiceProvider();
+        await _client.LoginAsync(Discord.TokenType.Bot, config["tokens:discord"]);
+        await _client.StartAsync();
+
+        await Task.Delay(-1);
+      }
     }
+  }
 }
