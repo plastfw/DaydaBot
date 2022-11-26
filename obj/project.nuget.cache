@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o+DjInptFwwjyvmKFh8t+sMXhRTYHQw0xrjuM1IN3Xsa8kecNDYXPTMc9uHse34CZrZkWgi6it28EGwTxDoY9A==",
+  "dgSpecHash": "qCUDUG4ZVtUJ9G1Ky8suI+JVHxKnb4Gv3W9hrInZmdpDrZgmMz9IYQW96GFZh5Pe3PaZEEi/K7kOtlRDr5l5Yw==",
   "success": true,
-  "projectFilePath": "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\DiscordBotDadya.csproj",
+  "projectFilePath": "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\plastfw\\.nuget\\packages\\discord.addons.hosting\\5.2.0\\discord.addons.hosting.5.2.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\discord.net\\3.8.1\\discord.net.3.8.1.nupkg.sha512",
@@ -20,6 +20,7 @@
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\7.0.0\\microsoft.extensions.configuration.fileextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.configuration.json\\7.0.0\\microsoft.extensions.configuration.json.7.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.configuration.usersecrets\\7.0.0\\microsoft.extensions.configuration.usersecrets.7.0.0.nupkg.sha512",
+    "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.configuration.yaml\\2.0.0-preview2\\microsoft.extensions.configuration.yaml.2.0.0-preview2.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
@@ -46,7 +47,8 @@
     "C:\\Users\\plastfw\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\plastfw\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\plastfw\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\plastfw\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\plastfw\\.nuget\\packages\\yamldotnet\\8.1.2\\yamldotnet.8.1.2.nupkg.sha512"
   ],
   "logs": []
 }

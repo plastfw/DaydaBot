@@ -1,61 +1,31 @@
-﻿using System.IO;
+﻿using System;
 using System.Threading.Tasks;
 using Discord;
-using Discord.Commands;
-using Discord.Addons.Hosting;
 using Discord.WebSocket;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-class Programm
+public class Program
 {
-  static async Task Main()
+  public static Task Main(string[] args) => new Program().MainAsync();
+
+  private DiscordSocketClient _client;
+  
+  public async Task MainAsync()
   {
-    var builder = new HostBuilder()
-      .ConfigureAppConfiguration(x =>
-      {
-        var configuration = new ConfigurationBuilder()
-          .SetBasePath(Directory.GetCurrentDirectory())
-          .AddJsonFile("appsettings.json", false, true)
-          .Build();
+    _client = new DiscordSocketClient();
 
-        x.AddConfiguration(configuration);
-      })
-      .ConfigureLogging(x =>
-      {
-        x.AddConsole();
-        x.SetMinimumLevel(LogLevel.Debug);
-      })
-      .ConfigureDiscordHost((context, config) =>
-      {
-        config.SocketConfig = new DiscordSocketConfig()
-        {
-          LogLevel = LogSeverity.Debug,
-          AlwaysDownloadUsers = false,
-          MessageCacheSize = 200,
-        };
+    _client.Log += Log;
 
-        config.Token = context.Configuration["Token"];
-      })
-      .UseCommandService((context, config) =>
-      {
-        config.CaseSensitiveCommands = false;
-        config.LogLevel = LogSeverity.Debug;
-        config.DefaultRunMode = RunMode.Sync;
-      })
-      .ConfigureServices((context, services) =>
-      {
-        // services
-        //   .AddHostedService<CommandAttribute>();
-      })
-      .UseConsoleLifetime();
+    var token = "MTA0MTgwMjUyMzUzNjc4NTUwOA.GdcfGR.oDsXubhUQu6-hC_H30g21wh68jnQaYw-W4aW1U";
+    
+    await _client.LoginAsync(TokenType.Bot, token);
+    await _client.StartAsync();
 
-    var host = builder.Build();
-    using (host)
-    {
-      await host.RunAsync();
-    }
+    // Block this task until the program is closed.
+    await Task.Delay(-1);
+  }
+  private Task Log(LogMessage msg)
+  {
+    Console.WriteLine(msg.ToString());
+    return Task.CompletedTask;
   }
 }

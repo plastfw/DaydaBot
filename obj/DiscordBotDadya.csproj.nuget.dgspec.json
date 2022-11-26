@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\DiscordBotDadya.csproj": {}
+    "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj": {}
   },
   "projects": {
-    "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\DiscordBotDadya.csproj": {
+    "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\DiscordBotDadya.csproj",
+        "projectUniqueName": "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj",
         "projectName": "DiscordBotDadya",
-        "projectPath": "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\DiscordBotDadya.csproj",
+        "projectPath": "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj",
         "packagesPath": "C:\\Users\\plastfw\\.nuget\\packages\\",
-        "outputPath": "D:\\Reposes\\Dadya\\DiscordBotDadya\\DiscordBotDadya\\obj\\",
+        "outputPath": "D:\\Reposes\\DaydaBot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\plastfw\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -62,6 +62,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.Extensions.Configuration.Yaml": {
+              "target": "Package",
+              "version": "[2.0.0-preview2, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -77,6 +81,10 @@
             "Microsoft.Extensions.Logging": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "YamlDotNet": {
+              "target": "Package",
+              "version": "[8.1.2, )"
             }
           },
           "imports": [
