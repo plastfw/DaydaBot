@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj": {}
+    "C:\\Users\\Admin\\Documents\\Projects\\DiscordBotDadya.csproj": {}
   },
   "projects": {
-    "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj": {
+    "C:\\Users\\Admin\\Documents\\Projects\\DiscordBotDadya.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\Projects\\DiscordBotDadya.csproj",
         "projectName": "DiscordBotDadya",
-        "projectPath": "D:\\Reposes\\DaydaBot\\DiscordBotDadya.csproj",
-        "packagesPath": "C:\\Users\\plastfw\\.nuget\\packages\\",
-        "outputPath": "D:\\Reposes\\DaydaBot\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\Projects\\DiscordBotDadya.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\Projects\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\plastfw\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -103,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Admin\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
