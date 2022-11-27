@@ -29,7 +29,7 @@ namespace DiscordBotDadya
             .AddSingleton(config)
             .AddSingleton(x => new DiscordSocketClient(new DiscordSocketConfig
             {
-              GatewayIntents = Discord.GatewayIntents.AllUnprivileged,
+              GatewayIntents = GatewayIntents.AllUnprivileged,
               AlwaysDownloadUsers = true
             }))
             .AddSingleton(x => new InteractionService(x.GetRequiredService<DiscordSocketClient>()))

@@ -34,6 +34,7 @@ namespace DiscordBotDadya
       if (message == null) return;
 
       int argPos = 0;
+      SocketGuildUser socketGuildUser = message.Author as SocketGuildUser;
 
       if (!(message.HasCharPrefix(_config["prefix"][0], ref argPos) ||
             message.HasMentionPrefix(_client.CurrentUser, ref argPos)) || message.Author.IsBot) return;
