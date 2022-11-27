@@ -31,6 +31,17 @@ namespace DiscordBotDadya
       try
       {
         var ctx = new SocketInteractionContext(_client, arg);
+        
+        var result = await _commands.ExecuteCommandAsync(ctx, _services);
+
+        if (!result.IsSuccess)
+          switch (result.Error)
+          {
+            case InteractionCommandError.UnmetPrecondition:
+              break;
+            default:
+              break;
+          }
       }
       catch (Exception ex)
       {

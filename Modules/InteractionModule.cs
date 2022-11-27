@@ -55,7 +55,7 @@ namespace DiscordBotDadya.Modules
     public async Task HandleModalInput(DemoModal modal)
     {
       string input = modal.Greeting;
-      await ReplyAsync(input);
+      await RespondAsync(input);
     }
   }
 
